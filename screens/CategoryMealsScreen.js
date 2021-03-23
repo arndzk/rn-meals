@@ -7,21 +7,18 @@ const CategoryMealsScreen = (props) => {
   const renderMealItem = (itemData) => {
     return (
       <View>
-        <Text>itemData.item.title</Text>
+        <Text>{itemData.item.title}</Text>
       </View>
     );
   };
-
   const catId = props.navigation.getParam('categoryId');
-  const displayMeals = MEALS.filter((meal) => {
-    meal.categoryIds.indexOf(catId) >= 0;
+  const displayedMeals = MEALS.filter((meal) => {
+    return meal.categoryIds.includes(catId);
   });
-  const selectedCategory = CATEGORIES.find((cat) => cat.id === catId);
   return (
     <View style={styles.screen}>
-      <Text>The Category Meals Screen!</Text>
       <FlatList
-        data={displayMeals}
+        data={displayedMeals}
         keyExtractor={(item, index) => item.id}
         renderItem={renderMealItem}
       />
