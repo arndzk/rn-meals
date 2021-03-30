@@ -1,7 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
 import { MEALS } from '../data/dummy-data';
+import HeaderButton from '../components/HeaderButton';
 
 const MealDetailsScreen = (props) => {
   const mealId = props.navigation.getParam('mealId');
@@ -22,6 +24,17 @@ MealDetailsScreen.navigationOptions = (navigationData) => {
   });
   return {
     headerTitle: selectedMeal.title,
+    headerRight: () => (
+      <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        <Item
+          title="Favourite"
+          iconName="ios-star"
+          onPress={() => {
+            console.log('Marked as favourite!');
+          }}
+        />
+      </HeaderButtons>
+    ),
   };
 };
 
