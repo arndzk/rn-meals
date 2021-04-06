@@ -13,7 +13,7 @@ const FiltersScreen = (props) => {
 
 FiltersScreen.navigationOptions = (navData) => {
   return {
-    headerTitle: 'FilterMeals',
+    headerTitle: 'Filter Meals',
     headerLeft: (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
