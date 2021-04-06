@@ -1,5 +1,4 @@
 import React from 'react';
-import { View, FlatList } from 'react-native';
 
 import { CATEGORIES, MEALS } from '../data/dummy-data';
 import MealList from '../components/MealList';
